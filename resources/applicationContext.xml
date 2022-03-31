@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:property-placeholder location="classpath:properties.properties"/>
+
+    <bean id="friend1"
+          class="com.pechersky.spring.Person">
+        <property name="name" value="${friend1.name}"/>
+        <property name="age" value="${friend1.age}"/>
+    </bean>
+
+    <bean id="friend2"
+          class="com.pechersky.spring.Person">
+        <property name="name" value="${friend2.name}"/>
+        <property name="age" value="${friend2.age}"/>
+    </bean>
+
+    <bean id="friend3"
+          class="com.pechersky.spring.Person">
+        <property name="name" value="${friend3.name}"/>
+        <property name="age" value="${friend3.age}"/>
+    </bean>
+
+    <bean id="myPerson"
+          class="com.pechersky.spring.Person">
+        <property name="name" value="${person.name}"/>
+        <property name="age" value="${person.age}"/>
+        <property name="friends">
+            <list>
+                <ref bean="friend1"/>
+                <ref bean="friend2"/>
+                <ref bean="friend3"/>
+            </list>
+        </property>
+    </bean>
+</beans>
